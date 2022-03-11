@@ -167,6 +167,7 @@ async function run() {
     const helm = getInput("helm") || "helm";
     const timeout = getInput("timeout");
     const repository = getInput("repository");
+    const additionalArgs = getInput("additional_args");
     const dryRun = core.getInput("dry-run");
     const secrets = getSecrets(core.getInput("secrets"));
     const atomic = getInput("atomic") || true;
@@ -197,6 +198,7 @@ async function run() {
       "--install",
       "--wait",
       `--namespace=${namespace}`,
+      additionalArgs
     ];
 
     // Per https://helm.sh/docs/faq/#xdg-base-directory-support

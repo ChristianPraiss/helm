@@ -45,6 +45,9 @@ inputs:
   version:
     description: Version of the app, usually commit sha works here.
     required: false
+  additional-args:
+    description: Additional args to append to the helm command
+    required: false
 runs:
   using: docker
   image: Dockerfile
