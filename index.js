@@ -197,8 +197,7 @@ async function run() {
       chart,
       "--install",
       "--wait",
-      `--namespace=${namespace}`,
-      additionalArgs
+      `--namespace=${namespace}`
     ];
 
     // Per https://helm.sh/docs/faq/#xdg-base-directory-support
@@ -216,6 +215,7 @@ async function run() {
     if (chartVersion) args.push(`--version=${chartVersion}`);
     if (timeout) args.push(`--timeout=${timeout}`);
     if (repository) args.push(`--repo=${repository}`);
+    if (additionalArgs) args.push(additionalArgs);
     valueFiles.forEach(f => args.push(`--values=${f}`));
     args.push("--values=./values.yml");
 
